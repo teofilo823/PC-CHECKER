@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutamento PC Checker - AR2</title>
+    <style>
+        :root {
+            --bg-color: #0f0f12;
+            --container-bg: rgba(35, 39, 42, 0.95);
+            --input-bg: #1e1f22;
+            --text-color: #f2f3f5;
+            --accent-color: #f2a900; 
+            --accent-hover: #d19200;
+            --label-color: #b5bac1;
+            --glow-color: rgba(242, 169, 0, 0.3);
+        }
+
+        /* Fundo Animado */
+        body {
+            background: linear-gradient(-45deg, #0f0f12, #1a1a1d, #2b2d31, #1a1a1d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-container {
+            background: var(--container-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        h2::before {
+            content: "";
+            height: 20px;
+            width: 4px;
+            background: var(--accent-color);
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
+        .field-group { margin-bottom: 25px; }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--label-color);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background: var(--input-bg);
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            background: #232428;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(242, 169, 0, 0.2);
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(242, 169, 0, 0.4);
+        }
+
+        .btn-submit:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>🛠️ Recrutamento PC Checker</h1>
+        
+        <form id="checkerForm">
+            <h2>👤 Identificação</h2>
+            <div class="field-group">
+                <label>Nick no Roblox / Tag Discord</label>
+                <input type="text" name="userInfo" placeholder="Ex: Player#0000" required>
+            </div>
+
+            <h2>🛠️ 1. Conhecimento Técnico</h2>
+            <div class="field-group">
+                <label>Quais as principais pastas do Windows com vestígios?</label>
+                <textarea name="tech1" rows="2" required></textarea>
+            </div>
+            <div class="field-group">
+                <label>Explique Prefetch e Recent no contexto de verificação.</label>
+                <textarea name="tech2" rows="2" required></textarea>
+            </div>
+            <div class="field-group">
+                <label>Diferença entre svchost.exe legítimo e vírus oculto?</label>
+                <textarea name="tech3" rows="2" required></textarea>
+            </div>
+
+            <h2>🔍 2. Ferramentas e Métodos</h2>
+            <div class="field-group">
+                <label>Quais ferramentas de terceiros você domina?</label>
+                <input type="text" name="tools" placeholder="Ex: Process Hacker, Echo, LastActivityView..." required>
+            </div>
+            <div class="field-group">
+                <label>Se o histórico do Win+R for apagado, como você procede?</label>
+                <textarea name="method1" rows="2" required></textarea>
+            </div>
+            <div class="field-group">
+                <label>Como achar um cheat renomeado para "Calculadora.exe"?</label>
+                <textarea name="method3" rows="2" required></textarea>
+            </div>
+
+            <h2>⚖️ 3. Situações Hipotéticas</h2>
+            <div class="field-group">
+                <label>O jogador abre pastas/conversas privadas. O que faz?</label>
+                <textarea name="hypo1" rows="2" required></textarea>
+            </div>
+            <div class="field-group">
+                <label>O suspeito é amigo de um Administrador. Isso muda algo?</label>
+                <textarea name="hypo4" rows="2" required></textarea>
+            </div>
+
+            <h2>🕵️ 4. Avançado</h2>
+            <div class="field-group">
+                <label>Jogador usou um "Cleaner" logo antes do check. E agora?</label>
+                <textarea name="adv1" rows="2" required></textarea>
+            </div>
+            <div class="field-group">
+                <label>Como identificar o uso de Máquina Virtual (VM)?</label>
+                <textarea name="adv2" rows="2" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Candidatura</button>
+        </form>
+    </div>
+
+    <script>
+        // WEBHOOK ATUALIZADO
+        const WEBHOOK_URL = 'https://discord.com/api/webhooks/1363620552324940238/XYfBRPfBcvPxNXDnHnNoTZaRyF7wjIO5SGH28Ajcqistuh1a5PIAklfDhstAfYNdYSZm';
+
+        document.getElementById('checkerForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "ENVIANDO AO DISCORD...";
+            btn.disabled = true;
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Payload formatado para o Discord
+            const payload = {
+                username: "Recrutamento AR2",
+                embeds: [{
+                    title: "🔍 NOVA CANDIDATURA: PC CHECKER",
+                    color: 15902976, // Amarelo
+                    description: `**Candidato:** ${data.userInfo}`,
+                    fields: [
+                        { name: "🛠️ Conhecimento Técnico", value: `• ${data.tech1}\n• ${data.tech2}\n• ${data.tech3}` },
+                        { name: "🔍 Ferramentas & Métodos", value: `**Domínio:** ${data.tools}\n**Win+R Apagado:** ${data.method1}\n**Disfarçados:** ${data.method3}` },
+                        { name: "⚖️ Ética e Postura", value: `**Privacidade:** ${data.hypo1}\n**Amizade Staff:** ${data.hypo4}` },
+                        { name: "🕵️ Avançado", value: `**Lidando com Cleaner:** ${data.adv1}\n**Identificação de VM:** ${data.adv2}` }
+                    ],
+                    footer: { text: "Sistema de Recrutamento AR2 • PC Checker" },
+                    timestamp: new Date()
+                }]
+            };
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert('🚀 Candidatura enviada com sucesso! A Staff analisará seu perfil.');
+                    e.target.reset();
+                } else {
+                    alert('❌ Houve um erro ao enviar. Verifique sua conexão ou se o link do webhook ainda é válido.');
+                }
+            } catch (err) {
+                alert('Erro fatal: ' + err.message);
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        };
+    </script>
+</body>
+</html>
